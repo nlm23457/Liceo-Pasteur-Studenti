@@ -1,0 +1,11 @@
+footer {
+  background-color: rgb(19, 19, 19);
+}
+
+footer div {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 17px;
+  text-align: center;
+  color: white;
+}
