@@ -2,10 +2,29 @@ footer {
   background-color: rgb(19, 19, 19);
 }
 
-footer div {
-  padding-top: 40px;
+footer p {
+  padding-top: 46px;
   padding-bottom: 40px;
   font-size: 17px;
   text-align: center;
   color: white;
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 54px;
+}
+
+footer img {
+  height: 40px;
+  margin: 0 4px;
+  background-color: aliceblue;
+  border-radius: 50%;
+  transition: all 0.15s;
+}
+
+footer img:hover {
+  opacity: 0.7;
 }
