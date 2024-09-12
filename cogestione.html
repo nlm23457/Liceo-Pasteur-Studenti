@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" type="text/css" href="css/header.css">
+      <link rel="stylesheet" type="text/css" href="css/general.css">
+      <link rel="stylesheet" type="text/css" href="css/footer.css">
+      <link rel="stylesheet" type="text/css" href="css/cogestione.css">
+      <script
+      src="https://kit.fontawesome.com/88f68782ef.js"
+      crossorigin="anonymous"
+      ></script>
+
+      <title>Liceo Pasteur</title>
+   </head>
+  </head>
+  <body>
+    <!--==================== NAVBAR ====================-->
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo"><img src="immagini/logo.png" alt=""></a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Home</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#" class="nav__link">News</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#" class="nav__link">Shop</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#" class="nav__link"><u>Cogestione</u></a>
+            </li>
+          </ul>
+
+          <!-- Close button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__actions">
+
+          <!-- Login button -->
+          <i class="ri-user-line nav__login" id="login-btn"></i>
+
+          <!-- Toggle button -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== LOGIN ====================-->
+    <div class="login" id="login">
+        <form action="" class="login__form">
+          <h2 class="login__title">Accesso</h2>
+  
+          <div class="login__group">
+            <div>
+              <label for="email" class="login__label">Email</label>
+              <input
+                type="email"
+                placeholder="Scrivi la tua email"
+                id="email"
+                class="login__input"
+              />
+            </div>
+  
+            <div>
+              <label for="password" class="login__label">Password</label>
+              <input
+                type="password"
+                placeholder="Scrivi la tua password"
+                id="password"
+                class="login__input"
+              />
+            </div>
+          </div>
+  
+          <div>
+            <p class="login__signup">
+              Non ti sei accreditato? <a href="#">Registrati</a>
+            </p>
+  
+            <a href="#" class="login__forgot"> Hai dimenticato la password </a>
+  
+            <button type="submit" class="login__button">Accedi</button>
+          </div>
+        </form>
+  
+        <i class="ri-close-line login__close" id="login-close"></i>
+      </div>
+
+
+      <!--==================== HERO ====================-->
+      <main class="hero-section">
+        <div>
+          <h1>LICEO PASTEUR <span class="green-color">COGESTIONE</span></h1>
+        </div>
+      </main>
+
+      <!--==================== INFOS ====================-->
+      <section class="infos-container">
+        <h1>
+            Come funziona?
+        </h1>
+        <p>
+            Scopri come registrarti ai corsi della cogestione, direttamente dall'applicazione utilizzando il tuo account studente. <b>Ti stupirai per quanto è facile e veloce!</b>
+        </p>
+        <div class="steps-container">
+            <div>
+                <img src="immagini/find.png" alt="cerca l'attività">
+                <h2><span class="green-color">1. Cerca</span> un'attività</h2>
+            </div>
+            <div>
+                <img src="immagini/sharing-file.png" alt="registrati all'evento">
+                <h2><span class="green-color">2. Prenota</span> il tuo posto</h2>
+            </div>
+            <div>
+                <img src="immagini/lifestyles.png" alt="fallo per ogni ora">
+                <h2><span class="green-color">3. Fallo</span> per ogni ora</h2>
+            </div>
+        </div>
+      </section>
+
+      <section class="infos-container">
+        <h1>
+            Il calendario
+        </h1>
+        <p>
+            Non farti trovare impreparato <b>all'apertura delle iscrizioni!</b> Consulta precedentemente l'elenco con la descrizioni dei corsi ed il calendario.
+        </p>
+        <div class="buttons-container">
+          <a href="#">
+            <button>
+              <div>Elenco Corsi</div>
+              <i
+                class="fas fa-arrow-right arrow-footer"
+                style="font-size: 15px"
+              ></i>
+            </button>
+          </a>
+          <a href="#">
+            <button>
+              <div>Calendario</div>
+              <i
+                  class="fas fa-arrow-right arrow-footer"
+                  style="font-size: 15px"
+              ></i>
+            </button>
+          </a>
+        </div>
+      </section>
+      <section class="infos-container" style="border: none;">
+        <h1>
+            I giorni
+        </h1>
+        <p>
+            In questa sezione ci sono linkate <b>le attività divise per giornata.</b> Clicca su una gionata per poter vedere i corsi. NB: i corsi verdi sono liberi, quelli gialli sono quasi a capacità raggiunta, quelli rossi sono pieni.
+        </p>
+        <div class="activities-container">
+          <a href="">
+            <div>
+              <img src="immagini/monday.png" alt="cerca l'attività">
+              <h2>Lunedì - Monday</h2>
+            </div>
+          </a>
+          <a href="">
+            <div>
+              <img src="immagini/tuesday.png" alt="registrati all'evento">
+              <h2>Martedì - Tuesday</h2>
+            </div>
+          </a>
+          <a href="">
+            <div>
+              <img src="immagini/wednesday.png" alt="fallo per ogni ora">
+              <h2>Mercoledì - Wednesday</h2>
+            </div>
+          </a>
+          <a href="">
+            <div>
+              <img src="immagini/thursday.png" alt="fallo per ogni ora">
+              <h2>Giovedì - Thursday</h2>
+            </div>
+          </a>
+      </div>
+      </section>
+
+
+
+      <!--==================== FOOTER ====================-->
+      <footer>
+        <p>
+          Made with ❤️ by Francesco Dresti
+        </p>
+        <div class="social-container">
+          <a href="https://www.instagram.com/liceolouispasteur_/"><img src="immagini/instagram-image.webp" alt="link-social-instagram"></a>
+          <a href="mailto: pasteur.studenti@gmail.com"><img src="immagini/email-image.png" alt="link-indirizzo-email"></a>
+        </div>
+      </footer>
+      <script src="script.js"></script>
+    </body>
