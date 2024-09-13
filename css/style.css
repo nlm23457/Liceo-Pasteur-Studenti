@@ -55,15 +55,6 @@
 /* --------- RESPONSIVE --------- */
 /* ------------------------------ */
 
-@media screen and (max-width: 1023px) {
-  .hero-section div {
-    width: 628px;
-  }
-  .hero-section h1 {
-    font-size: 45px;
-  }
-}
-
 @media screen and (max-width: 750px) {
   .index-info {
     display: flex;
