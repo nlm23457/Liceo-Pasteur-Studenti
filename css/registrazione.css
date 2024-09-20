@@ -1,0 +1,77 @@
+body {
+  padding-top: 100px;
+}
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../immagini/hero-image.jpg");
+}
+
+.log-in-container {
+  width: 460px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgb(200, 200, 200);
+  margin: 0 auto 72px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-title {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 34px;
+  margin: 26px 0;
+}
+
+.log-in-container input {
+  color: #432000;
+  background-color: #dce1eb;
+  border: 0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 360px;
+  margin: 10px 0;
+  transition: all 0.15s;
+}
+
+.log-in-container input:hover {
+  box-shadow: 0px 0px 2px rgb(160, 160, 160);
+}
+
+#submitSignIn,
+#submitSignUp {
+  width: 360px;
+  height: 48.5px;
+  margin: 10px 0 20px 0;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: var(--first-color);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+#signInButton,
+#signUpButton {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#submitSignIn:hover,
+#submitSignUp:hover {
+  box-shadow: 0px 0px 2px rgb(133, 133, 133);
+}
+
+.log-in-container i {
+  position: absolute;
+}
+
+.input-group > label {
+  display: none;
+}
+
+.links {
+  margin-bottom: 30px;
+}
