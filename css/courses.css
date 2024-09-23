@@ -1,0 +1,30 @@
+.courses-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 10px;
+  margin: 30px 30px 100px 30px;
+}
+
+.courses-general-title {
+  margin-top: 114px;
+  text-align: center;
+}
+
+.courses-container button {
+  padding: 8px 20px;
+  margin: 10px 0 20px 0;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--first-color);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.courses-container button:hover {
+  box-shadow: 0px 0px 2px rgb(133, 133, 133);
+}
+
+.course-container {
+  border: 1px solid black;
+}

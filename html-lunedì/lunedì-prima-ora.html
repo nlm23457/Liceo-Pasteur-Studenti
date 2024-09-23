@@ -1,30 +1,115 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login e Registrazione</title>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/header.css" />
+    <link rel="stylesheet" type="text/css" href="../css/general.css" />
+    <link rel="stylesheet" type="text/css" href="../css/courses.css" />
+    <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+    <title>Document</title>
   </head>
   <body>
-    <h1>Login e Registrazione</h1>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="../index.html" class="nav__logo"
+          ><img src="../immagini/logo.png" alt=""
+        /></a>
 
-    <h2>Registrati</h2>
-    <form id="register-form">
-      <input type="email" id="register-email" placeholder="Email" />
-      <input type="password" id="register-password" placeholder="Password" />
-      <button type="submit">Registrati</button>
-    </form>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../index.html" class="nav__link">Home</a>
+            </li>
 
-    <h2>Accedi</h2>
-    <form id="login-form">
-      <input type="email" id="login-email" placeholder="Email" />
-      <input type="password" id="login-password" placeholder="Password" />
-      <button type="submit">Accedi</button>
-    </form>
+            <li class="nav__item">
+              <a href="#" class="nav__link">News</a>
+            </li>
 
-    <div id="user-info"></div>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Shop</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="../cogestione.html" class="nav__link"
+                ><u>Cogestione</u></a
+              >
+            </li>
+          </ul>
+
+          <!-- Close button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__actions">
+          <!-- Login button -->
+          <a href="../registrazione.html"
+            ><i class="ri-user-line nav__login" id="login-btn"></i
+          ></a>
+
+          <!-- Toggle button -->
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ELENCO CORSI -->
+    <h1 class="courses-general-title">Elenco corsi prima ora lunedì</h1>
+    <section class="courses-container">
+      <div class="course-container" id="corso-spagnolo">
+        <h2>Corso di spagnolo</h2>
+        <p>Aula 48 - IV padiglione</p>
+        <p>
+          Lorem ipsum dolor sit amen orem ipsum dolor sit amen orem ipsum dolor
+        </p>
+        <button class="iscriviti-btn">Iscriviti</button>
+        <button>Elenco partecipanti</button>
+      </div>
+
+      <div class="course-container" id="corso-theoremz">
+        <h2>Corso di theoremz</h2>
+        <p>Aula 32 - III padiglione</p>
+        <p>
+          Lorem ipsum dolor sit amen orem ipsum dolor sit amen orem ipsum dolor
+        </p>
+        <button class="iscriviti-btn">Iscriviti</button>
+        <button>Elenco partecipanti</button>
+      </div>
+
+      <div class="course-container" id="corso-lazio">
+        <h2>Corso di lazio 1900</h2>
+        <p>Aula 21 - IV padiglione</p>
+        <p>
+          Lorem ipsum dolor sit amen orem ipsum dolor sit amen orem ipsum dolor
+        </p>
+        <button class="iscriviti-btn">Iscriviti</button>
+        <button>Elenco partecipanti</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ by Francesco Dresti</p>
+      <div class="social-container">
+        <a href="https://www.instagram.com/liceolouispasteur_/"
+          ><img
+            src="../immagini/instagram-image.webp"
+            alt="link-social-instagram"
+        /></a>
+        <a href="mailto: pasteur.studenti@gmail.com"
+          ><img src="../immagini/email-image.png" alt="link-indirizzo-email"
+        /></a>
+      </div>
+    </footer>
+    <script type="module" src="../js/corsi.js"></script>
+    <script type="module" src="../js/general.js"></script>
   </body>
 </html>
