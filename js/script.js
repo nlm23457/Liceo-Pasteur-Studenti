@@ -14,17 +14,6 @@ import {
   doc,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
-// Configurazione Firebase
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDLhjU-P1R3g-VR3Awv-4nhXgw6tpdjqTc",
-//   authDomain: "liceo-pasteur-studenti-f0a8f.firebaseapp.com",
-//   projectId: "liceo-pasteur-studenti-f0a8f",
-//   storageBucket: "liceo-pasteur-studenti-f0a8f.appspot.com",
-//   messagingSenderId: "542827887858",
-//   appId: "1:542827887858:web:ff6f348d92d91c4d13a46b",
-//   measurementId: "G-Q526B56MBC",
-// };
-
 const firebaseConfig = {
   apiKey: "AIzaSyDLhjU-P1R3g-VR3Awv-4nhXgw6tpdjqTc",
   authDomain: "liceo-pasteur-studenti-f0a8f.firebaseapp.com",

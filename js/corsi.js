@@ -1,17 +1,3 @@
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-// import {
-//   getAuth,
-//   onAuthStateChanged,
-// } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-// import {
-//   getFirestore,
-//   doc,
-//   getDoc,
-//   setDoc,
-//   collection,
-//   getDocs,
-// } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
 import {
   getFirestore,
@@ -24,6 +10,8 @@ import {
 import {
   getAuth,
   onAuthStateChanged,
+  setPersistence,
+  browserSessionPersistence,
 } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 
 // Configura Firebase
@@ -42,13 +30,28 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+// Funzione per colorare il corso selezionato e nascondere gli altri corsi
+function coloraCorsoEIsolalo(corsoId) {
+  const corsoSelezionato = document.getElementById(corsoId);
+  if (corsoSelezionato) {
+    corsoSelezionato.style.backgroundColor = "green";
+  }
+
+  const altriCorsi = document.querySelectorAll(
+    `.course-container:not(#${corsoId})`
+  );
+  altriCorsi.forEach((corso) => {
+    corso.style.display = "none";
+  });
+}
+
 // Funzione per iscrivere l'utente al corso e creare il corso se non esiste
 async function iscriviAlCorso(corsoId, userData) {
   const corsoRef = doc(db, "corsi", corsoId);
   const corsoSnap = await getDoc(corsoRef);
+  console.log(corsoSnap);
 
   if (!corsoSnap.exists()) {
-    // Se il corso non esiste, lo creiamo
     await setDoc(corsoRef, {
       partecipanti: [userData], // Aggiungi l'utente come primo partecipante
     });
@@ -60,41 +63,22 @@ async function iscriviAlCorso(corsoId, userData) {
   const corsoData = corsoSnap.data();
   const partecipanti = corsoData.partecipanti || [];
 
-  // Controlla se ci sono già 20 partecipanti
   if (partecipanti.length >= 20) {
     alert("Il corso è già pieno (max 20 partecipanti).");
     return;
   }
 
-  // Controlla se l'utente è già iscritto
   if (partecipanti.some((p) => p.email === userData.email)) {
     alert("Sei già iscritto a questo corso.");
     return;
   }
 
-  // Aggiungi l'utente all'elenco dei partecipanti
   await updateDoc(corsoRef, {
     partecipanti: arrayUnion(userData),
   });
 
-  // Aggiorna l'interfaccia utente
   coloraCorsoEIsolalo(corsoId);
   alert("Iscrizione avvenuta con successo!");
-}
-
-// Funzione per colorare il corso selezionato e nascondere gli altri
-function coloraCorsoEIsolalo(corsoId) {
-  // Colora il corso selezionato di verde
-  const corsoSelezionato = document.getElementById(corsoId);
-  corsoSelezionato.style.backgroundColor = "green";
-
-  // Nasconde gli altri corsi
-  const altriCorsi = document.querySelectorAll(
-    `.course-container:not(#${corsoId})`
-  );
-  altriCorsi.forEach((corso) => {
-    corso.style.display = "none";
-  });
 }
 
 // Gestione dei pulsanti "Iscriviti"
@@ -103,35 +87,54 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const corsoId = button.closest(".course-container").id;
 
-    // Verifica che l'utente sia loggato
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const userId = user.uid;
-        const email = user.email;
+    const user = auth.currentUser;
+    if (user) {
+      const userId = user.uid;
+      const email = user.email;
 
-        // Recupera i dettagli dell'utente dal documento Firestore
-        const userRef = doc(db, "users", userId);
-        getDoc(userRef)
-          .then((docSnap) => {
-            if (docSnap.exists()) {
-              const userData = docSnap.data();
-              iscriviAlCorso(corsoId, {
-                nome: userData.nome,
-                cognome: userData.cognome,
-                classe: userData.classe,
-                email: email,
-              });
-            } else {
-              alert("Impossibile recuperare i dati utente.");
-            }
-          })
-          .catch((error) => {
-            console.error("Errore nel recupero dei dati utente:", error);
-          });
-      } else {
-        alert("Devi essere loggato per iscriverti a un corso.");
-        window.location.href = "registrazione.html"; // Reindirizza alla pagina di login se non loggato
-      }
-    });
+      // Recupera i dettagli dell'utente dal documento Firestore
+      const userRef = doc(db, "users", userId);
+      getDoc(userRef)
+        .then((docSnap) => {
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            iscriviAlCorso(corsoId, {
+              UID: user.uid,
+              nome: userData.nome,
+              cognome: userData.cognome,
+              classe: userData.classe,
+              email: email,
+            });
+          } else {
+            alert("Impossibile recuperare i dati utente.");
+          }
+        })
+        .catch((error) => {
+          console.error("Errore nel recupero dei dati utente:", error);
+        });
+    } else {
+      alert("Devi essere loggato per iscriverti a un corso.");
+      window.location.href = "registrazione.html"; // Reindirizza alla pagina di login se non loggato
+    }
   });
 });
+
+onAuthStateChanged(auth, async (user) => {
+  const corsoRef = doc(db, "corsi", "corso-lazio");
+  const corsoSnap = await getDoc(corsoRef);
+  const corsoData = corsoSnap.data();
+  const partecipanti = corsoData.partecipanti || [];
+  console.log(corsoData);
+  console.log(partecipanti);
+
+  if (partecipanti.some((p) => p.email === user.email)) {
+    coloraCorsoEIsolalo("corso-lazio");
+  }
+});
+
+// for (const utente of partecipanti) {
+//   // console.log(utente);
+//   if (utente.email === user.email) {
+//     console.log("ciaoo");
+//   }
+// }

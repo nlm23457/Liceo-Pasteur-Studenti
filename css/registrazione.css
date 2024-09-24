@@ -77,3 +77,24 @@ body {
 .links {
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 499px) {
+  body {
+    padding-top: 50px;
+  }
+  .log-in-container {
+    width: auto;
+    margin: 0 16px 40px 16px;
+  }
+  .log-in-container input {
+    width: 100%;
+    min-width: 290px;
+    font-size: 13px;
+  }
+
+  #submitSignIn,
+  #submitSignUp {
+    width: 100%;
+    min-width: 290px;
+  }
+}
