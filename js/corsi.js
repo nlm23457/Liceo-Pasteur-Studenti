@@ -30,6 +30,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+const corsiElenco = ["corso-spagnolo", "corso-theoremz", "corso-lazio"];
+
 // Funzione per colorare il corso selezionato e nascondere gli altri corsi
 function coloraCorsoEIsolalo(corsoId) {
   const corsoSelezionato = document.getElementById(corsoId);
@@ -120,15 +122,22 @@ buttons.forEach((button) => {
 });
 
 onAuthStateChanged(auth, async (user) => {
-  const corsoRef = doc(db, "corsi", "corso-lazio");
-  const corsoSnap = await getDoc(corsoRef);
-  const corsoData = corsoSnap.data();
-  const partecipanti = corsoData.partecipanti || [];
-  console.log(corsoData);
-  console.log(partecipanti);
+  for (const corso of corsiElenco) {
+    const corsoRef = doc(db, "corsi", corso);
+    const corsoSnap = await getDoc(corsoRef);
+    const corsoData = corsoSnap.data();
+    const partecipanti = corsoData.partecipanti || [];
+    console.log(corsoData);
+    console.log(partecipanti);
 
-  if (partecipanti.some((p) => p.email === user.email)) {
-    coloraCorsoEIsolalo("corso-lazio");
+    if (partecipanti.some((p) => p.email === user.email)) {
+      coloraCorsoEIsolalo(corso);
+      // const IDCorso = document.getElementById(corso);
+      // const pulsante = IDCorso.find("button").first();
+      // pulsante.style.display = "none";
+
+      return;
+    }
   }
 });
 
